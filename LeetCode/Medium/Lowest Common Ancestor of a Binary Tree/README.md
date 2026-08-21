@@ -4,7 +4,7 @@
 **Difficulty:** Medium
 **Language:** Java
 **Status:** ACCEPTED
-**Problem:** [Open problem](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/?envType=study-plan-v2&envId=leetcode-75)
+**Problem:** [Open problem](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/?envType=study-plan-v2&envId=leetcode-75)
 **Topics:** Tree
 
 ## Problem
@@ -53,4 +53,4 @@ Source file: [solution.java](./solution.java)
 
 Add your final time and space complexity here if desired.
 
-Synced by LeetSync Pro on 8/22/2026, 12:06:34 AM
+Synced by LeetSync Pro on 8/22/2026, 12:13:32 AM
