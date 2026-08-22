@@ -4,7 +4,7 @@
 **Difficulty:** Easy
 **Language:** Java
 **Status:** ACCEPTED
-**Problem:** [Open problem](https://leetcode.com/problems/check-divisibility-by-digit-sum-and-product/description/?envType=daily-question&envId=2026-08-22)
+**Problem:** [Open problem](https://leetcode.com/problems/check-divisibility-by-digit-sum-and-product/?envType=daily-question&envId=2026-08-22)
 
 ## Problem
 
@@ -52,4 +52,4 @@ Source file: [solution.java](./solution.java)
 
 Add your final time and space complexity here if desired.
 
-Synced by GitSync on 8/22/2026, 3:34:20 PM
+Synced by GitSync on 8/22/2026, 3:43:33 PM
