@@ -5,6 +5,7 @@
 **Language:** Java
 **Status:** ACCEPTED
 **Problem:** [Open problem](https://leetcode.com/problems/check-divisibility-by-digit-sum-and-product/?envType=daily-question&envId=2026-08-22)
+**Runtime:** Accepted Runtime: 0 ms
 
 ## Problem
 
@@ -52,4 +53,4 @@ Source file: [solution.java](./solution.java)
 
 Add your final time and space complexity here if desired.
 
-Synced by GitSync on 8/22/2026, 3:48:15 PM
+Synced by GitSync on 8/22/2026, 4:28:05 PM
