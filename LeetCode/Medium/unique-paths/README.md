@@ -4,7 +4,7 @@
 **Difficulty:** Medium
 **Language:** Java
 **Status:** ACCEPTED
-**Problem:** [Open problem](https://leetcode.com/problems/unique-paths/description/?envType=problem-list-v2&envId=math)
+**Problem:** [Open problem](https://leetcode.com/problems/unique-paths/description/)
 **Topics:** Trie
 
 ## Problem
@@ -47,4 +47,4 @@ Source file: [solution.java](./solution.java)
 
 Add your final time and space complexity here if desired.
 
-Synced by GitSync on 8/26/2026, 12:38:18 PM
+Synced by GitSync on 8/26/2026, 12:42:05 PM
