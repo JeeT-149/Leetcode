@@ -1,32 +1,30 @@
 class SmallestInfiniteSet {
-    private boolean[] addedback;
-    private int currentmin;
+    private final boolean[] addedBack = new boolean[1002];
+    private int pendingCount;
+    private int current;
 
     public SmallestInfiniteSet() {
-        addedback = new boolean[1001];
-        currentmin = 1;
+        current = 1;
+        pendingCount = 0;
     }
-    
+
     public int popSmallest() {
-        for (int i = 1; i<currentmin;i++){
-            if(addedback[i]){
-                addedback[i]= false;
-                return i;
+        if (pendingCount > 0) {
+            for (int i = 1; i < current; i++) {
+                if (addedBack[i]) {
+                    addedBack[i] = false;
+                    pendingCount--;
+                    return i;
+                }
             }
         }
-        return currentmin++;
+        return current++;
     }
-    
+
     public void addBack(int num) {
-        if (num<currentmin){
-            addedback[num]= true;
+        if (num < current && !addedBack[num]) {
+            addedBack[num] = true;
+            pendingCount++;
         }
     }
 }
-
-/**
- * Your SmallestInfiniteSet object will be instantiated and called as such:
- * SmallestInfiniteSet obj = new SmallestInfiniteSet();
- * int param_1 = obj.popSmallest();
- * obj.addBack(num);
- */
