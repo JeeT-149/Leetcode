@@ -14,7 +14,7 @@ class Solution {
         return dfs(0,0,1);
     }
     private boolean dfs(int r, int c, int balance){
-        if(r==m-1 & c==n-1) return balance==0;
+        if(r==m-1 && c==n-1) return balance==0;
         if(visited[r][c][balance]) return false;
         visited[r][c][balance]=true;
         if (r+1<m){
@@ -24,7 +24,7 @@ class Solution {
                 if (dfs(r+1,c,nextbalance)) return true;
             }
         }
-        if (c+1<m){
+        if (c+1<n){
             int nextbalance = balance + (grid[r][c+1]=='(' ? 1 : -1);
             int remainingstep = (m-1-r)+(n-1-(c+1));
             if (nextbalance >= 0 && nextbalance <= remainingstep){
