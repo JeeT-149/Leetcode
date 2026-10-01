@@ -7,6 +7,7 @@
 **Problem:** [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
 **Topics:** String, Stack, Bracket Sequences
 **Patterns (inferred):** Monotonic Stack
+**Runtime:** Accepted Runtime: 0 ms
 
 ---
 
