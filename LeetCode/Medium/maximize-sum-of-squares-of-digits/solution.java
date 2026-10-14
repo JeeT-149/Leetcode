@@ -7,7 +7,7 @@ class Solution {
             arr[ptr++]='9';
             sum -=9;
         }
-        if (ptr<sum){
+        if (ptr<num){
             arr[ptr++]=(char) ('0'+sum);
         }
         while(ptr<num){

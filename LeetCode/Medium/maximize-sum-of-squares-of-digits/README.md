@@ -7,7 +7,6 @@
 **Problem:** [Maximize Sum of Squares of Digits](https://leetcode.com/problems/maximize-sum-of-squares-of-digits/)
 **Topics:** Math, Greedy
 **Patterns (inferred):** Greedy
-**Runtime:** Accepted Runtime: 0 ms
 
 ---
 
