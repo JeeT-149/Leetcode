@@ -5,7 +5,7 @@ class Solution {
         for (int i = 0; i<n; i++){
             long num = nums[i];
             long sum = getDigitSum(num);
-            arr[i]= (sum<<46) | (num<<18) | (long) i;
+            arr[i]= (sum<<50) | (num<<18) | (long) i;
         }
         Arrays.sort(arr);
         int swaps = 0;
