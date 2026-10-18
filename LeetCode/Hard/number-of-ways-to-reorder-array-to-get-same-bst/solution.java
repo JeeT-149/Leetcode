@@ -35,7 +35,7 @@ class Solution {
         int rptr = 0;
         for (int i = 1; i<m; i++){
             if (arr[i]<root){
-                left[lptr]=arr[i];
+                left[lptr++]=arr[i];
             }
             else{
                 right[rptr++]=arr[i];
