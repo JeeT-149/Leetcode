@@ -1,7 +1,7 @@
 class Solution {
     public List<Integer> targetIndices(int[] nums, int target) {
         int n = nums.length;
-        int countsmall = 0;
+        int countsmaller = 0;
         int countequal = 0;
         for (int i = 0; i<n; i++){
             if (nums[i]<target){
