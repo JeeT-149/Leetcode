@@ -6,7 +6,6 @@
 **Status:** ACCEPTED
 **Problem:** [Minimum Operations to Sort a String](https://leetcode.com/problems/minimum-operations-to-sort-a-string/)
 **Topics:** String
-**Runtime:** Accepted Runtime: 0 ms
 
 ---
 

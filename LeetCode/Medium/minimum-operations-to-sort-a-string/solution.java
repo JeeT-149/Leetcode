@@ -26,8 +26,8 @@ class Solution {
             return 1;
         }
         if (s.indexOf(min) == n - 1 && s.lastIndexOf(max) == 0) {            
-            return 2;
+            return 3;
         }
-        return 3;
+        return 2;
     }
 }
