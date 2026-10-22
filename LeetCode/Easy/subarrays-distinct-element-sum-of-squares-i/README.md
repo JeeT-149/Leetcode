@@ -7,7 +7,6 @@
 **Problem:** [Subarrays Distinct Element Sum of Squares I](https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares-i/)
 **Topics:** Array, Hash Table, Binary Indexed Tree, Segment Tree
 **Patterns (inferred):** Two Pointers, Prefix Sum, Hash Map Lookup
-**Runtime:** Accepted Runtime: 0 ms
 
 ---
 
