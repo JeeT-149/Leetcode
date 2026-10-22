@@ -25,7 +25,7 @@ class Solution {
         if (first == min || last == max) {
             return 1;
         }
-        if (first != max || last != min) {
+        if (s.indexOf(min) == n - 1 && s.lastIndexOf(max) == 0) {            
             return 2;
         }
         return 3;
