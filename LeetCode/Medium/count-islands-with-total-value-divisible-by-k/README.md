@@ -7,7 +7,6 @@
 **Problem:** [Count Islands With Total Value Divisible by K](https://leetcode.com/problems/count-islands-with-total-value-divisible-by-k/)
 **Topics:** Array, Depth-First Search, Breadth-First Search, Union-Find, Matrix
 **Patterns (inferred):** Two Pointers, Prefix Sum
-**Runtime:** Accepted Runtime: 0 ms
 
 ---
 
