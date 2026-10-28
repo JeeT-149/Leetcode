@@ -7,6 +7,7 @@
 **Problem:** [Minimum XOR Path in a Grid](https://leetcode.com/problems/minimum-xor-path-in-a-grid/)
 **Topics:** Array, Dynamic Programming, Bit Manipulation, Matrix
 **Patterns (inferred):** Two Pointers, Prefix Sum, Dynamic Programming, Bitmasking
+**Runtime:** Accepted Runtime: 0 ms
 
 ---
 
