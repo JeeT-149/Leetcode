@@ -9,7 +9,7 @@ class Solution {
         
         boolean[] nextState = new boolean[1024];
         
-        dp0[0]] = true;
+        dp[0][0] = true;
         
         for (int r = 0; r < m; r++) {
             for (int c = 0; c < n; c++) {
