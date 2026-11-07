@@ -7,7 +7,6 @@
 **Problem:** [Process Tasks Using Servers](https://leetcode.com/problems/process-tasks-using-servers/)
 **Topics:** Array, Heap (Priority Queue)
 **Patterns (inferred):** Two Pointers, Prefix Sum
-**Runtime:** Accepted Runtime: 0 ms
 
 ---
 

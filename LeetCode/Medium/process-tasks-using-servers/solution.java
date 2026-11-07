@@ -7,35 +7,45 @@ class Solution {
     public int[] assignTasks(int[] servers, int[] tasks) {
         int n = servers.length;
         int m = tasks.length;
+        
         freeHeap = new long[n];
         busyHeap = new long[n];
-        for (int i = 0; i<n; i++){
+        
+        for (int i = 0; i < n; i++) {
             pushFree(((long) servers[i] << 32) | i);
         }
+        
         int[] ans = new int[m];
-        long currenttime = 0;
-        for (int j = 0; j<m; j++){
-            if (currenttime < j){
-                currenttime = j;
+        long currentTime = 0;
+        
+        for (int j = 0; j < m; j++) {
+            if (currentTime < j) {
+                currentTime = j;
             }
-            if (freeSz == 0 && busySz == 0){
-                long nexttime = busyHeap[0]>>>18;
-                if (currenttime < nexttime){
-                    currenttime = nexttime;
+            
+            if (freeSz == 0 && busySz > 0) {
+                long nextTime = busyHeap[0] >>> 18;
+                if (currentTime < nextTime) {
+                    currentTime = nextTime;
                 }
             }
-            while (busySz > 0 && (busyHeap[0] >>> 18) <= currenttime){
+            
+            while (busySz > 0 && (busyHeap[0] >>> 18) <= currentTime) {
                 long finished = popBusy();
                 int idx = (int) (finished & 0x3FFFFL);
                 pushFree(((long) servers[idx] << 32) | idx);
             }
-            long bestfree = popFree();
-            int idx = (int) (bestfree & 0xFFFFFFFFL);
-            ans[j]=idx;
-            pushBusy(((currenttime + tasks[j] ) <<18) |idx);
+            
+            long bestFree = popFree();
+            int idx = (int) (bestFree & 0xFFFFFFFFL);
+            ans[j] = idx;
+            
+            pushBusy(((currentTime + tasks[j]) << 18) | idx);
         }
+        
         return ans;
     }
+    
     private void pushFree(long val) {
         int curr = freeSz++;
         while (curr > 0) {
