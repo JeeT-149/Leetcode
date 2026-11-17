@@ -20,7 +20,14 @@ class Solution {
         char[] arr = s.toCharArray();
         int[][] cost = new int[n][n];
 
-        // Step 1: Compute minimum change cost for every possible substring block
+        // Step 1: Pre-fill with invalid boundary to block length-1 segments entirely
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                cost[i][j] = 1000000;
+            }
+        }
+
+        // Step 2: Compute minimum change cost for substrings of length >= 2
         for (int i = 0; i < n - 1; i++) {
             for (int j = i + 1; j < n; j++) {
                 int len = j - i + 1;
@@ -54,18 +61,26 @@ class Solution {
             dp[i] = cost[0][i - 1];
         }
 
-        // Step 2: Compress DP states for partitions 2 to K in-place
+        // Step 3: Compress DP states for partitions 2 to K in-place
         for (int p = 2; p <= k; p++) {
-            for (int i = n; i >= p; i--) {
+            
+            // i must be at least p * 2 because every block needs minimum 2 chars
+            for (int i = n; i >= p * 2; i--) {
                 int minVal = 1000000;
                 
-                for (int j = p - 1; j < i; j++) {
+                // j must leave enough room for preceding blocks and at least 2 chars for the final block
+                for (int j = (p - 1) * 2; j <= i - 2; j++) {
                     int val = dp[j] + cost[j][i - 1];
                     if (val < minVal) {
                         minVal = val;
                     }
                 }
                 dp[i] = minVal;
+            }
+            
+            // Wipe out impossible states for the current partition depth
+            for (int i = 0; i < p * 2; i++) {
+                dp[i] = 1000000;
             }
         }
 
