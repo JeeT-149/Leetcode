@@ -3,66 +3,63 @@ import java.util.Arrays;
 class Solution {
     public int maximumSaleItems(int[][] items, int budget) {
         int n = items.length;
-        int[] factor = new int[n];
-        int[] price = new int[n];
+        int maxFactor = 0;
         int minPrice = Integer.MAX_VALUE;
 
         for (int i = 0; i < n; i++) {
-            factor[i] = items[i][0];
-            price[i] = items[i][1];
-            if (price[i] < minPrice) {
-                minPrice = price[i];
-            }
+            int f = items[i][0];
+            int p = items[i][1];
+            if (f > maxFactor) maxFactor = f;
+            if (p < minPrice) minPrice = p;
         }
 
-        int[] dp = new int[budget + 1];
-        Arrays.fill(dp, -1);
-        dp[0] = 0;
+        // Count factor frequencies and accumulate multiples via harmonic sieve
+        int[] freq = new int[maxFactor + 1];
+        for (int i = 0; i < n; i++) {
+            freq[items[i][0]]++;
+        }
+
+        int[] multCount = new int[maxFactor + 1];
+        for (int d = 1; d <= maxFactor; d++) {
+            if (freq[d] == 0) continue;
+            int sum = 0;
+            for (int m = d; m <= maxFactor; m += d) {
+                sum += freq[m];
+            }
+            multCount[d] = sum - 1; // exclude self (j != i)
+        }
+
+        // Pack (price, freeCap) into a single primitive long[] to sort without objects
+        long[] packed = new long[n];
+        for (int i = 0; i < n; i++) {
+            int f = items[i][0];
+            int p = items[i][1];
+            packed[i] = ((long) p << 32) | (multCount[f] & 0xFFFFFFFFL);
+        }
+        Arrays.sort(packed);
+
+        long spent = 0;
+        long bonus = 0;
+        long maxItems = budget / minPrice;
 
         for (int i = 0; i < n; i++) {
-            int p = price[i];
-            if (p > budget) continue;
+            long p = packed[i] >>> 32;
+            long cap = packed[i] & 0xFFFFFFFFL;
+            if (cap == 0) continue;
+            if (spent + p > budget) break;
 
-            int f = factor[i];
-            int freeCap = 0;
-            for (int j = 0; j < n; j++) {
-                if (i != j && factor[j] % f == 0) {
-                    freeCap++;
-                }
-            }
+            long canBuy = (budget - spent) / p;
+            long take = cap < canBuy ? cap : canBuy;
 
-            int maxUseful = budget / p;
-            if (freeCap > maxUseful) {
-                freeCap = maxUseful;
-            }
+            spent += take * p;
+            bonus += take;
 
-            // Binary-split the bonus-eligible copies into O(log(freeCap)) 0-1 bundles
-            int rem = freeCap;
-            for (int k = 1; rem > 0; k <<= 1) {
-                int take = k < rem ? k : rem;
-                rem -= take;
-
-                int w = take * p;
-                int v = take << 1; // Each bonus-eligible copy gives 1 bought + 1 free = 2
-                for (int b = budget; b >= w; b--) {
-                    int prev = dp[b - w];
-                    if (prev != -1 && prev + v > dp[b]) {
-                        dp[b] = prev + v;
-                    }
-                }
+            long total = (bonus << 1) + (budget - spent) / minPrice;
+            if (total > maxItems) {
+                maxItems = total;
             }
         }
 
-        int maxItems = 0;
-        for (int b = 0; b <= budget; b++) {
-            if (dp[b] != -1) {
-                int total = dp[b] + (budget - b) / minPrice;
-                if (total > maxItems) {
-                    maxItems = total;
-                }
-            }
-        }
-
-        return maxItems;
+        return (int) maxItems;
     }
 }
